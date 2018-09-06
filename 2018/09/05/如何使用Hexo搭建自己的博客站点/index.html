@@ -36,36 +36,23 @@ Github PagesGithub Pages则是github上的一项"><meta name="keywords" content=
 <p>保存配置之后，你可以不着急传到仓库，先刷新本地博客，看是否还是原样，如有问题可以看到terminal终端上的错误信息，然后检查没问题为止。</p>
 <p>确认无误之后，在本地博客目录执行以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean // clean本地项目，防止缓存</span><br><span class="line">hexo g // 全拼是：hexo generate，可以简写成 hexo g; 根据你编辑的md格式的博客，生成静态网页</span><br><span class="line">hexo d  // 全拼是：hexo deploy，可以简写成 hexo d; 将本地博客发布到github</span><br></pre></td></tr></table></figure>
+<p> <strong>如果执行 hexo d 命令报错 ERROR Deployer not found: git,此时执行下列命令即可，然后在执行 hexo d</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>这个时候就可以在地址栏输入 <strong>username.github.io</strong> 就可以访问你的博客了,别人也可以通过这个地址访问你的博客</p>
+<h5 id="6-主题配置"><a href="#6-主题配置" class="headerlink" title="6.主题配置"></a>6.主题配置</h5><p>Hexo主题非常多，可以<a href="https://hexo.io/themes/" target="_blank" rel="noopener">选择不同的主题</a> 本文选 <a href="http://anatole.munen.cc/" target="_blank" rel="noopener">Anatole</a>为主题风格</p>
+<ul>
+<li>首先切换到Themes文件夹下</li>
+<li><a href="https://github.com/Ben02/hexo-theme-Anatole" target="_blank" rel="noopener">Anatole主题下载地址</a> 然后克隆下来放在Themes文件夹下</li>
+<li>修改_config.yml 里面的 <strong>theme字段的值为anatole</strong> 即可</li>
+<li>修改一些其他的个性化配置(下面的是我的配置)</li>
+<li>如果想要修改主题的个性配置，需要修改主题里面的_config.yml 文件，修改方法大致相同</li>
+</ul>
+<p><img src="/2018/09/05/如何使用Hexo搭建自己的博客站点/屏幕快照 2018-09-06 下午2.09.39.png" alt=""></p>
+<h5 id="7-添加评论"><a href="#7-添加评论" class="headerlink" title="7.添加评论"></a>7.添加评论</h5><p>因为各种原因，我选择了<a href="https://leancloud.cn/" target="_blank" rel="noopener">Valine</a>作为,我的评论框,首先在<a href="https://leancloud.cn/" target="_blank" rel="noopener">Valine</a>注册帐号，并且创建一个应用，这个时候会有一个key和Id，如下图<br><img src="/2018/09/05/如何使用Hexo搭建自己的博客站点/屏幕快照 2018-09-06 下午2.15.40.png" alt="">,打开themes文件夹里面的anatole主题文件夹里面的_config.yml（这个地方修改原来的名字_confiy_simple.yml）把key和id填入如下图<br><img src="/2018/09/05/如何使用Hexo搭建自己的博客站点/屏幕快照 2018-09-06 下午2.21.17.png" alt=""><br>这个时候再去看本地的博客就会发现已经有了评论框了<br><img src="/2018/09/05/如何使用Hexo搭建自己的博客站点/屏幕快照 2018-09-06 下午2.22.26.png" alt=""></p>
 <blockquote>
-<p>如果执行 <strong>hexo d</strong> 命令报错 <strong>ERROR Deployer not found: git</strong>,此时执行下列命令即可，然后在执行 <strong>hexo d</strong></p>
+<p>注意：如果提交评论不能提交打开comments.pug文件是一个链接网址有错误。更新就可</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">这个时候就可以在地址栏输入 __username.github.io__ 就可以访问你的博客了,别人也可以通过这个地址访问你的博客</span><br><span class="line"></span><br><span class="line">##### 6.主题配置</span><br><span class="line">Hexo主题非常多，可以[选择不同的主题](https://hexo.io/themes/) 本文选 [Anatole](http://anatole.munen.cc/)为主题风格</span><br><span class="line"></span><br><span class="line">* 首先切换到Themes文件夹下</span><br><span class="line">* [Anatole主题下载地址](https://github.com/Ben02/hexo-theme-Anatole) 然后克隆下来放在Themes文件夹下</span><br><span class="line">* 修改_config.yml 里面的 __theme字段的值为anatole__ 即可</span><br><span class="line">* 修改一些其他的个性化配置(下面的是我的配置)</span><br><span class="line">* 如果想要修改主题的个性配置，需要修改主题里面的_config.yml 文件，修改方法大致相同</span><br><span class="line"></span><br><span class="line">![](如何使用Hexo搭建自己的博客站点/屏幕快照 2018-09-06 下午2.09.39.png)</span><br><span class="line"></span><br><span class="line">##### 7.添加评论</span><br><span class="line">因为各种原因，我选择了[Valine](https://leancloud.cn/)作为,我的评论框,首先在[Valine](https://leancloud.cn/)注册帐号，并且创建一个应用，这个时候会有一个key和Id，如下图</span><br><span class="line">![](如何使用Hexo搭建自己的博客站点/屏幕快照 2018-09-06 下午2.15.40.png),打开themes文件夹里面的anatole主题文件夹里面的_config.yml（这个地方修改原来的名字_confiy_simple.yml）把key和id填入如下图</span><br><span class="line">![](如何使用Hexo搭建自己的博客站点/屏幕快照 2018-09-06 下午2.21.17.png)</span><br><span class="line">这个时候再去看本地的博客就会发现已经有了评论框了</span><br><span class="line">![](如何使用Hexo搭建自己的博客站点/屏幕快照 2018-09-06 下午2.22.26.png)</span><br><span class="line"></span><br><span class="line">&gt; 注意：如果提交评论不能提交打开comments.pug文件是一个链接网址有错误。更新就可</span><br></pre></td></tr></table></figure>
-<p>if theme.valine.enable == true</p>
-<pre><code>#vcomment
-script(src=&apos;//cdn1.lncld.net/static/js/3.0.4/av-min.js&apos;)
-//****************修改下面这句
-script(src=&apos;//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js&apos;)
-//****************修改上面这句
-script.
-  var notify = &apos;#{ theme.valine.notify }&apos; == true ? true : false;
-  var verify = &apos;#{ theme.valine.verify }&apos; == true ? true : false;
-  var GUEST_INFO = [&apos;nick&apos;,&apos;mail&apos;,&apos;link&apos;];
-  var guest_info = &apos;#{ theme.valine.guest_info }&apos;.split(&apos;,&apos;).filter(function(item){
-    return GUEST_INFO.indexOf(item) &gt; -1
-  });
-  guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
-  window.valine = new Valine({
-    el:&apos;#vcomment&apos;,
-    notify:notify,
-    verify:verify,
-    appId:&apos;#{theme.valine.appid}&apos;,
-    appKey:&apos;#{theme.valine.appkey}&apos;,
-    placeholder:&apos;#{theme.valine.placeholder}&apos;,
-    avatar:&apos;#{theme.valine.avatar}&apos;,
-    guest_info:guest_info,
-    pageSize:&apos;#{theme.valine.pageSize}&apos;
-  })
-</code></pre><p><code>`</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">if theme.valine.enable == true</span><br><span class="line">    #vcomment</span><br><span class="line">    script(src=&apos;//cdn1.lncld.net/static/js/3.0.4/av-min.js&apos;)</span><br><span class="line">    //****************修改下面这句</span><br><span class="line">    script(src=&apos;//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js&apos;)</span><br><span class="line">    //****************修改上面这句</span><br><span class="line">    script.</span><br><span class="line">      var notify = &apos;#&#123; theme.valine.notify &#125;&apos; == true ? true : false;</span><br><span class="line">      var verify = &apos;#&#123; theme.valine.verify &#125;&apos; == true ? true : false;</span><br><span class="line">      var GUEST_INFO = [&apos;nick&apos;,&apos;mail&apos;,&apos;link&apos;];</span><br><span class="line">      var guest_info = &apos;#&#123; theme.valine.guest_info &#125;&apos;.split(&apos;,&apos;).filter(function(item)&#123;</span><br><span class="line">        return GUEST_INFO.indexOf(item) &gt; -1</span><br><span class="line">      &#125;);</span><br><span class="line">      guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;</span><br><span class="line">      window.valine = new Valine(&#123;</span><br><span class="line">        el:&apos;#vcomment&apos;,</span><br><span class="line">        notify:notify,</span><br><span class="line">        verify:verify,</span><br><span class="line">        appId:&apos;#&#123;theme.valine.appid&#125;&apos;,</span><br><span class="line">        appKey:&apos;#&#123;theme.valine.appkey&#125;&apos;,</span><br><span class="line">        placeholder:&apos;#&#123;theme.valine.placeholder&#125;&apos;,</span><br><span class="line">        avatar:&apos;#&#123;theme.valine.avatar&#125;&apos;,</span><br><span class="line">        guest_info:guest_info,</span><br><span class="line">        pageSize:&apos;#&#123;theme.valine.pageSize&#125;&apos;</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
 <h5 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h5><p><a href="https://blog.csdn.net/jingbin_/article/details/79536467" target="_blank" rel="noopener">Mac搭建Hexo博客流程记录</a></p>
 <p><a href="https://blog.csdn.net/u012587637/article/details/79237803" target="_blank" rel="noopener">valine无法提交问题解决方法</a></p>
 <p><a href="https://www.jianshu.com/p/469e985288b3?from=jiantop.com" target="_blank" rel="noopener">HEXO博客轻松更换主题外观</a></p>
