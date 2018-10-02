@@ -1,5 +1,311 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="YuanJiaShuai,yjs_maoge@163.com"><title>关于iOS订阅型内购开发 · 宁静致远</title><meta name="description" content="由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下1.第一步添加内购产品
-首先还是添加内购产品，但是这次添加的就不是消耗型项目了，而是添加订阅型项目，添加的订阅型项目是可以分为不同的组，比如组A里面包含"><meta name="keywords" content="Hexo,HTML,CSS,iOS,Linux,Objective-C"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">宁静致远</a></h3><div class="description"><p>什么是勇敢？勇敢不是不怕，而是带着恐惧依然前行！</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img src="/images/favicon.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>关于iOS订阅型内购开发</a></h3></div><div class="post-content"><h4 id="由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下"><a href="#由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下" class="headerlink" title="由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下"></a>由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下</h4><h5 id="1-第一步添加内购产品"><a href="#1-第一步添加内购产品" class="headerlink" title="1.第一步添加内购产品"></a>1.第一步添加内购产品</h5><blockquote>
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下1.第一步添加内购产品 首先还是添加内购产品，但是这次添加的就不是消耗型项目了，而是添加订阅型项目，添加的订阅型项目是可以分为不同的组，比如组A里面包含订阅一周的产品（10元），包含订阅一月的产品（20元）；组B里面包含订阅一周的产品（15元），包含订">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于iOS订阅型内购开发">
+<meta property="og:url" content="http://yoursite.com/2018/09/06/关于iOS订阅型内购开发/index.html">
+<meta property="og:site_name" content="宁静致远">
+<meta property="og:description" content="由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下1.第一步添加内购产品 首先还是添加内购产品，但是这次添加的就不是消耗型项目了，而是添加订阅型项目，添加的订阅型项目是可以分为不同的组，比如组A里面包含订阅一周的产品（10元），包含订阅一月的产品（20元）；组B里面包含订阅一周的产品（15元），包含订">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/09/06/关于iOS订阅型内购开发/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/06/关于iOS订阅型内购开发/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/06/关于iOS订阅型内购开发/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/06/关于iOS订阅型内购开发/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/06/关于iOS订阅型内购开发/5.png">
+<meta property="og:updated_time" content="2018-10-02T10:09:56.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于iOS订阅型内购开发">
+<meta name="twitter:description" content="由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下1.第一步添加内购产品 首先还是添加内购产品，但是这次添加的就不是消耗型项目了，而是添加订阅型项目，添加的订阅型项目是可以分为不同的组，比如组A里面包含订阅一周的产品（10元），包含订阅一月的产品（20元）；组B里面包含订阅一周的产品（15元），包含订">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/06/关于iOS订阅型内购开发/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/06/关于iOS订阅型内购开发/"/>
+
+
+
+
+
+  <title>关于iOS订阅型内购开发 | 宁静致远</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">宁静致远</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">什么是勇敢？勇敢不是不怕，而是带着恐惧依然前行！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/06/关于iOS订阅型内购开发/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YuanJiaShuai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宁静致远">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于iOS订阅型内购开发</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-06T16:13:16+08:00">
+                2018-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下"><a href="#由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下" class="headerlink" title="由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下"></a>由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下</h4><h5 id="1-第一步添加内购产品"><a href="#1-第一步添加内购产品" class="headerlink" title="1.第一步添加内购产品"></a>1.第一步添加内购产品</h5><blockquote>
 <p>首先还是添加内购产品，但是这次添加的就不是消耗型项目了，而是添加订阅型项目，添加的订阅型项目是可以分为不同的组，比如组A里面包含订阅一周的产品（10元），包含订阅一月的产品（20元）；组B里面包含订阅一周的产品（15元），包含订阅一月的产品（30元）；不同组的产品是相互直接没有影响的，可以同时存在多个（比如我购买了A组的产品1，B组的产品1）；但是相同组的产品是只能同时存在一个；</p>
 </blockquote>
 <p><img src="/2018/09/06/关于iOS订阅型内购开发/1.png" alt=""><br>点击创建之后会出现下图<br><img src="/2018/09/06/关于iOS订阅型内购开发/2.png" alt=""><br>点击下一步之后会出现是否创建分组，我图片中已经显示创建处理订阅组A，订阅组A，这里就不在截图显示了</p>
@@ -21,13 +327,376 @@
 <p><img src="/2018/09/06/关于iOS订阅型内购开发/5.png" alt=""></p>
 <p>以上就是这次订阅内购的实践，过程里面还会遇到很多坑，比如消耗型内购起名字和简介不能出现货币的名称（比如人民币），AppStore 审核的时候链接改为正式链接，其实苹果审核的时候也是需要测试链接，只有当上线了才能使用正式链接，这个地方后台注意一下，如果是指定的错误码是21007（此收据来自测试环境，但已发送到生产环境进行验证。而是将其发送到测试环境。）或者是21008 （此收据来自生产环境，但已发送到测试环境进行验证。而是将其发送到生产环境。）后台更换一下验证路径；漏单处理等其它的内购问题就不在一一说了；</p>
 <h3 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h3><p><a href="https://help.apple.com/app-store-connect/#/dev7e89e149d" target="_blank" rel="noopener">苹果官网内购文档</a><br><a href="https://developer.apple.com/library/archive/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html#//apple_ref/doc/uid/TP40010573-CH104-SW1" target="_blank" rel="noopener">收据验证编码文档</a><br><a href="https://blog.csdn.net/dongtinghong/article/details/72355927" target="_blank" rel="noopener">iOS订阅型内购要点</a></p>
-</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-09-06</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,http://yoursite.com/2018/09/06/关于iOS订阅型内购开发/,宁静致远,关于iOS订阅型内购开发,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2018/09/06/使用Appium进行iOS的真机自动化测试/" title="使用Appium进行iOS的真机自动化测试">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2018/09/05/如何使用Hexo搭建自己的博客站点/" title="如何使用Hexo搭建自己的博客站点">下一篇</a></li></ul></div><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7/dist/Valine.min.js"></script><script>var valine = new Valine({
-  el:'#vcomments',
-  notify:false || false, 
-  verify:false|| false, 
-  app_id:'JjpjyUn3QBIywXPd9QrNc2wV-gzGzoHsz',
-  app_key:'LC8nWLGIAjz9L5SclzW88AYc',
-  placeholder:'ヾﾉ≧∀≦)o来啊，快活啊!',
-  path: window.location.pathname,
-  avatar:'/images/favicon.png'
-})</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/05/如何使用Hexo搭建自己的博客站点/" rel="next" title="如何使用Hexo搭建自己的博客站点">
+                <i class="fa fa-chevron-left"></i> 如何使用Hexo搭建自己的博客站点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/06/使用Appium进行iOS的真机自动化测试/" rel="prev" title="使用Appium进行iOS的真机自动化测试">
+                使用Appium进行iOS的真机自动化测试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTUzNC8xNjA2MQ"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">YuanJiaShuai</p>
+              <p class="site-description motion-element" itemprop="description">什么是勇敢？勇敢不是不怕，而是带着恐惧依然前行！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下"><span class="nav-number">1.</span> <span class="nav-text">由于公司项目里面有一个类似购买一个时期的产品，原本使用消耗式内购来做，但是被苹果审核拒绝了，苹果建议（要求）使用订阅式内购来做这个，于是就来研究一下</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-第一步添加内购产品"><span class="nav-number">1.1.</span> <span class="nav-text">1.第一步添加内购产品</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-第2步添加沙盒测试帐号"><span class="nav-number">1.2.</span> <span class="nav-text">2.第2步添加沙盒测试帐号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-第3步添加共享密钥"><span class="nav-number">1.3.</span> <span class="nav-text">3.第3步添加共享密钥</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-第4步编写代码"><span class="nav-number">1.4.</span> <span class="nav-text">4.第4步编写代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-第5步就是数据传送给后台了"><span class="nav-number">1.5.</span> <span class="nav-text">5.第5步就是数据传送给后台了</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接："><span class="nav-number"></span> <span class="nav-text">参考链接：</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YuanJiaShuai</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
